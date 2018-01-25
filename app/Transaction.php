@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Buyer;
+use App\Product;
 use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
@@ -11,4 +13,14 @@ class Transaction extends Model
       'buyer_id',
       'product_id'
     ];
+
+    public function buyer()
+    {
+      return $this->belongTo(Buyer::class);
+    }
+
+    public function product()
+    {
+      return $this->belongTo(Product::class);
+    }
 }
